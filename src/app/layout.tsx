@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FinanceLab — Dashboard Financeiro",
+  title: "Finanças do Gabriel V — Dashboard Financeiro",
   description:
-    "Acompanhe o mercado em tempo real e planeje suas metas de investimento com juros compostos.",
+    "Acompanhe o mercado em tempo real, analise seus gastos e planeje suas metas de investimento.",
 };
 
 export default function RootLayout({

@@ -3,6 +3,14 @@
 import { Moon, Sun, TrendingUp } from "lucide-react";
 import { useTheme } from "@/lib/theme-context";
 
+const TABS = [
+  { id: "dashboard", label: "Dashboard" },
+  { id: "news", label: "Notícias" },
+  { id: "analysis", label: "Análise" },
+  { id: "expenses", label: "Gastos" },
+  { id: "calculator", label: "Calculadora" },
+];
+
 export default function Header({
   activeTab,
   onTabChange,
@@ -18,19 +26,16 @@ export default function Header({
         <div className="flex items-center gap-2">
           <TrendingUp className="w-6 h-6 text-accent" />
           <h1 className="text-lg font-bold tracking-tight">
-            Finance<span className="text-accent">Lab</span>
+            Finanças do <span className="text-accent">Gabriel V</span>
           </h1>
         </div>
 
-        <nav className="hidden sm:flex items-center gap-1">
-          {[
-            { id: "dashboard", label: "Dashboard" },
-            { id: "calculator", label: "Calculadora" },
-          ].map((tab) => (
+        <nav className="hidden md:flex items-center gap-1">
+          {TABS.map((tab) => (
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
-              className={`px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                 activeTab === tab.id
                   ? "bg-accent text-white"
                   : "text-muted hover:text-foreground hover:bg-card-border/50"
@@ -57,15 +62,12 @@ export default function Header({
       </div>
 
       {/* Mobile tabs */}
-      <div className="sm:hidden flex border-t border-card-border">
-        {[
-          { id: "dashboard", label: "Dashboard" },
-          { id: "calculator", label: "Calculadora" },
-        ].map((tab) => (
+      <div className="md:hidden flex border-t border-card-border overflow-x-auto">
+        {TABS.map((tab) => (
           <button
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
-            className={`flex-1 py-2.5 text-sm font-medium transition-colors ${
+            className={`flex-1 min-w-fit px-3 py-2.5 text-xs font-medium transition-colors whitespace-nowrap ${
               activeTab === tab.id
                 ? "text-accent border-b-2 border-accent"
                 : "text-muted"
